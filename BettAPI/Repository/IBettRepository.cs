@@ -14,7 +14,7 @@ namespace BettAPI.Repository
         Task<BettModel> GetBettByIdAsync(int id);
         Task<int> AddBettAsync(UpdatedBettModel bett);
         Task UpdateBettAsync(int id, BettModel bett);
-        Task UpdateBettPatchAsync(int id, JsonPatchDocument bett);
+       
         Task DeleteBettAsync(int id);
     }
 }

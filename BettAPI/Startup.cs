@@ -21,6 +21,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using BettAPI.Repository;
+using FluentValidation.AspNetCore;
+using BettAPI.Filters;
 
 namespace BettAPI
 {
@@ -68,6 +70,11 @@ namespace BettAPI
              .AddEntityFrameworkStores<ApplicationDbContext>();
 
             services.AddControllers();
+            services.AddMvc(
+                options => options.Filters.Add<ValidationFilter>()).AddFluentValidation(fv=>
+            {
+                fv.RegisterValidatorsFromAssemblyContaining<Startup>();
+            });
 
              services.AddTransient<IBettRepository, BettRepository>();
 
@@ -99,7 +106,7 @@ namespace BettAPI
                             },
                             new string[] {}
                           }
- });
+            });
                  });
         }
 

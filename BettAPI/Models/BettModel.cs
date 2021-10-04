@@ -15,8 +15,6 @@ namespace BettAPI.Models
         public string Odds { get; set; }
 
         public bool isUpdated { get; set; }
-
-        //public DateTime CreatedTime { get; set; }
         public DateTime UpdatedTime { get; set; }
     }
 }

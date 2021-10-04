@@ -30,15 +30,7 @@ namespace BettAPI.Repository
 
         public async Task<BettModel> GetBettByIdAsync(int id)
         {
-            //var records = await _context.Books.Where(x => x.Id == bookId).Select(x => new BookModel()
-            //{
-            //    Id = x.Id,
-            //    Title = x.Title,
-            //    Description = x.Description
-            //}).FirstOrDefaultAsync();
-
-            //return records;
-
+            
             var bett = await _context.Bett.FindAsync(id);
             return _mapper.Map<BettModel>(bett);
         }
@@ -59,15 +51,7 @@ namespace BettAPI.Repository
 
         public async Task UpdateBettAsync(int id, BettModel bettModel)
         {
-            //var book = await _context.Books.FindAsync(bookId);
-            //if (book != null)
-            //{
-            //    book.Title = bookModel.Title;
-            //    book.Description = bookModel.Description;
-
-            //    await _conext.SaveChangesAsync();
-            //}
-
+           
             var bet = new Bett()
             {
                 Id = id,
@@ -83,15 +67,7 @@ namespace BettAPI.Repository
 
         }
 
-        public async Task UpdateBettPatchAsync(int id, JsonPatchDocument bettModel)
-        {
-            var bet = await _context.Bett.FindAsync(id);
-            if (bet != null)
-            {
-                bettModel.ApplyTo(bet);
-                await _context.SaveChangesAsync();
-            }
-        }
+      
 
         public async Task DeleteBettAsync(int id)
         {
