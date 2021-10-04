@@ -61,14 +61,6 @@ namespace BettAPI.Controllers
 
 
 
-
-        //[HttpPatch("{id}")]
-        //public async Task<IActionResult> UpdateBettPatch([FromBody] JsonPatchDocument bettModel, [FromRoute] int id)
-        //{
-        //    await _bettRepository.UpdateBettPatchAsync(id, bettModel);
-        //    return Ok();
-        //}
-
         [HttpDelete("{id}")]
         public async Task<IActionResult> DeleteBett([FromRoute] int id)
         {
